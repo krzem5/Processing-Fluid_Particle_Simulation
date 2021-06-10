@@ -1,9 +1,6 @@
-final static int PARTICLE_COUNT=1000;
+final static int PARTICLE_COUNT=100;
 final static float PARTICLE_SIZE=8;
-final static float PARTICLE_WEIGHT_COEFFICIENT=0.5;
-final static float PARTICLE_REPULTION_COEFFICIENT=2;
-final static float PARTICLE_AVERAGE_WEIGHT=0.5;
-final static float GRAVITY=1;
+final static float GRAVITY=9.81;
 
 
 
@@ -32,10 +29,10 @@ void draw(){
 	int t=millis();
 	float dt=(t-_lt)*1e-3f;
 	_lt=t;
-	_quicksort(0,PARTICLE_COUNT-1);
 	for (Particle p:pl){
 		p.update1(dt);
 	}
+	_quicksort(0,PARTICLE_COUNT-1);
 	int i=0;
 	for (Particle p:pl){
 		p.update2(dt,i+1);
